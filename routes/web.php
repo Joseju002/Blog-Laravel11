@@ -1,27 +1,13 @@
 <?php
 
+//Imports
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
-//Tipos de peticiones
 
-//GET - Leer un registro
-//POST - Envío de información
-//PUT - Crear un registro
-//PATCH - Actualizar un registro
-//DELETE - Eliminar un registro
-
-Route::get('/', function () {
-    return "<h1>Bienvenido a mi aplicación de Laravel</h1>";
-});
-
-Route::get("/posts", function () {
-    return "<h2>Aquí se mostrarán los posts</h2>";
-});
-
-Route::get("/posts/create", function () {
-    return "<h2>Aquí se mostrará un formulario para crear un post create</h2>";
-});
-
-Route::get("/posts/{post}", function ($post) {
-    return "<h2>Este es el post {$post}</h2>";
-});
+//Rutas GET
+Route::get('/', HomeController::class);
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
