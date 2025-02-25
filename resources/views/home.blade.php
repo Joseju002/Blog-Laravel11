@@ -12,7 +12,7 @@
 
 @section('content')
     <div class="max-w-7xl mx-auto px-4">
-        <x-alert2 type="warning" class="mb-4">
+        <x-alert2 type="danger" class="mb-4">
             <x-slot name="title">
                 Título
             </x-slot>
