@@ -7,16 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table = 'posts';
+   protected $table = 'posts';
 
-    protected function title(): Attribute {
-        return Attribute::make(
-            set: function($value) {
-                return strtolower($value);
-            },
-            get: function($value) {
-                return ucfirst($value);
-            }
-        );
-    }
+   protected function casts(): array {
+    return [
+        'published_at' => 'datetime',
+        'is_active'=> 'boolean',
+    ];
+   }
 }
